@@ -1,7 +1,7 @@
 //*____________________________________ Requirements & Imports ______________________________________*//
 const fs = require('fs');
 
-const generatePage = require('./src/page-template.js');
+const generatePage = require('./src/page-template');
 
 //*____________________________________ Variables and Arguments _____________________________________*//
 const profileDataArgs = process.argv.slice(2, process.argv.length);
@@ -11,13 +11,6 @@ const profileDataArgs = process.argv.slice(2, process.argv.length);
 // const github = profileDataArgs[1];
 const [name, github] = profileDataArgs;
 
-
-//*____________________________________Function to Write the Page __________________________________*//
-fs.writeFile('./index.html', generatePage(name, github), err => {
-    if (err) throw new Error(err);
-  
-    console.log('Portfolio complete! Check out index.html to see the output!');
-  });
 
 
 
