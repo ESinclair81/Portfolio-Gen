@@ -1,7 +1,6 @@
-//*____________________________________ Requirements & Imports ______________________________________*//
-
 const inquirer = require('inquirer');
 
+//*______________ INQUIRER PROMPTS ______________________________*//
 inquirer
   .prompt([
     {
@@ -15,27 +14,10 @@ inquirer
 // const fs = require('fs');
 // const generatePage = require('./src/page-template');
 
-//*____________________________________ Variables and Arguments _____________________________________*//
-//* const profileDataArgs = process.argv.slice(2, process.argv.length);
-
 // const pageHTML = generatePage(name, github);
 
+// fs.writeFile('./index.html', pageHTML, err => {
+//   if (err) throw err;
 
-//*___________________________________ -HASHED OUT ALL MEAN THE SAME- ________________________________*//
-//* const name = profileDataArgs[0];    
-//* const github = profileDataArgs[1];
-//* const [name, github] = profileDataArgs;
-
-//   fs.writeFile('./index.html', pageHTML, err => {
-//     if (err) throw err;
-  
-//     console.log('Portfolio complete! Check out index.html to see the output!');
-//   });
-
-  //*_____________________________________- Does same as above -_______________________________________*//
-//*   fs.writeFile('./index.html', generatePage(name, github), err => {
-    //*     if (err) throw new Error(err);
-      
-    //*     console.log('Portfolio complete! Check out index.html to see the output!');
-    // *  });
-    
+//   console.log('Portfolio complete! Check out index.html to see the output!');
+// });
