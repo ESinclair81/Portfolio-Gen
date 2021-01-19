@@ -5,11 +5,7 @@ const generatePage = require('./src/page-template');
 
 // fs.writeFile('./index.html', pageHTML, err => {
 //   if (err) throw err;
-
-//   console.log('Portfolio complete! Check out index.html to see the output!');
 // });
-
-
 
 const inquirer = require('inquirer');
 
@@ -31,18 +27,30 @@ const promptUser = () => {
       name: 'about',
       message: 'Provide some information about yourself:'
     }
-  ]);
+  ])
+  
+  
 };
 
+                                                                                                                                          
 
 //*_________________________________ Project Questions Function _____________________________________*//
-const promptProject = () => {
+const promptProject = portfolioData => {
+
+  // If there's no 'projects' array property, create one
+if (!portfolioData.projects) {
+  portfolioData.projects = [];
+}
+
   console.log(`
 =================
 Add a New Project
 =================
 `);
-  return inquirer.prompt.then(([
+  return inquirer.prompt(projectData => {
+    portfolioData.projects.push(projectData);
+  })
+  ([
     {
       type: 'input',
       name: 'name',
@@ -76,19 +84,21 @@ Add a New Project
       message: 'Would you like to enter another project?',
       default: false
     }
-  ]));
+]);
 };
 
 //*________________________ Function Linking two Functions Together with Promises ___________________*//
 promptUser()
-  .then(answers => console.log(answers))
   .then(promptProject)
-  .then(projectAnswers => console.log(projectAnswers));
+  .then(portfolioData => {
+    const pageHTML = generatePage(PortfolioData);
 
+    // fs.writeFile('./index.html', pageHTML, err => {
+    //   if (err) throw new Error(err);
 
+    //   console.log('Page created! Check out index.html in this directory to see it!');
+    // });
+  });
 
-  const promptProject = portfolioData => {
-    portfolioData.projects = [];
+ 
 
-
-  };
