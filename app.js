@@ -116,7 +116,7 @@ Add a New Project
       type: 'input',
       name: 'about',
       message: 'Provide some information about yourself:',
-      when: ({ confirmAbout }) => {
+      when: ({confirmAbout }) => {
         if (confirmAbout) {
           return true;
         } else {
@@ -159,6 +159,7 @@ promptUser()
   
   console.log('Portfolio complete! Check out index.html to see the output!');
   });
+
 
   });
 
